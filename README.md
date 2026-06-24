@@ -29,3 +29,43 @@ If using OpenCode, load this skill with the command:
 ```
 
 Then chat directly requesting a prompt. The skill will automatically activate AGENT.md + HEALING-MUSIC.md as the knowledge base and handle all requests.
+
+## Tools
+
+### `metadata-tagger.py`
+
+Batch tag MP3 files with metadata (artist, album, title, genre, etc.) using ffmpeg.
+
+```bash
+# Tag a single file
+python metadata-tagger.py -i input.mp3 --artist "Name" --title "Song"
+
+# Batch tag all MP3s in a directory
+python metadata-tagger.py -i ./music/ --album "My Album" --year 2026
+
+# Force overwrite existing output files
+python metadata-tagger.py -i input.mp3 --artist "Name" --overwrite
+python metadata-tagger.py -i input.mp3 --artist "Name" --force
+
+# Preview without writing
+python metadata-tagger.py -i input.mp3 --artist "Name" --dry-run
+```
+
+Config is stored in `config.json` (auto-created with defaults). CLI flags take precedence over config values.
+
+### `show-metadata.py`
+
+Display MP3 metadata and technical info using mutagen.
+
+```bash
+# Show metadata for one file
+python show-metadata.py file.mp3
+
+# Show metadata for multiple files
+python show-metadata.py *.mp3
+
+# JSON output
+python show-metadata.py file.mp3 --json
+```
+
+Displays ID3 tags (title, artist, album, year, genre, track, disc, composer, comment, cover art) and audio info (duration, bitrate, sample rate, channels).

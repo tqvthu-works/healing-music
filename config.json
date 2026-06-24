@@ -1,0 +1,11 @@
+{
+  "artist": "BynG",
+  "album_artist": "Your Artist Name",
+  "album": "Unknown Album",
+  "title": "",
+  "genre": "",
+  "year": "",
+  "track": "",
+  "output_suffix": "_tagged",
+  "overwrite": false
+}
